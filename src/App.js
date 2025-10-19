@@ -89,58 +89,63 @@ function App() {
           </ul>
         </div>
       </nav>
+{/* === HERO SECTION with Light Rays / Mobile Lanyard === */}
+<section id="hero" className="hero">
+  {/* === Desktop Light Rays === */}
+  <div className="light-rays-wrapper desktop-only">
+    <LightRays
+      raysOrigin="top-center"
+      raysColor="#ffffff"
+      raysSpeed={1.5}
+      lightSpread={0.8}
+      rayLength={1.2}
+      followMouse={true}
+      mouseInfluence={0.1}
+      noiseAmount={0.1}
+      distortion={0.05}
+      className="custom-rays"
+    />
+  </div>
 
-      {/* === HERO SECTION with Light Rays === */}
-      <section id="hero" className="hero">
-        <div className="light-rays-wrapper">
-          <LightRays
-            raysOrigin="top-center"
-            raysColor="#ffffff"
-            raysSpeed={1.5}
-            lightSpread={0.8}
-            rayLength={1.2}
-            followMouse={true}
-            mouseInfluence={0.1}
-            noiseAmount={0.1}
-            distortion={0.05}
-            className="custom-rays"
-          />
-        </div>
+  {/* === Mobile 3D Lanyard Background === */}
+  <div className="lanyard-bg mobile-only">
+    <Lanyard position={[0, 0, 10]} gravity={[0, -35, 0]} />
+  </div>
 
-        {/* Site Title */}
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="site-title"
-        >
-          Portfolio
-        </motion.h2>
+  {/* === Site Title === */}
+  <motion.h2
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+    className="site-title"
+  >
+    Portfolio
+  </motion.h2>
 
-        {/* Hero Intro */}
-        <motion.h1
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="hero-title"
-        >
-          Hello, I’m <span>Yusuf Badat</span>
-        </motion.h1>
+  {/* === Hero Intro === */}
+  <motion.h1
+    initial={{ opacity: 0, y: -50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+    className="hero-title"
+  >
+    Hello, I’m <span>Yusuf Badat</span>
+  </motion.h1>
 
-        {/* Typing Animation */}
-        <TypingAnimation />
+  {/* === Typing Animation === */}
+  <TypingAnimation />
 
-        <motion.p
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 1 }}
-          className="hero-subtext"
-        >
-          I’m a passionate developer who thrives on creating elegant, scalable, and
-          intuitive systems. I bridge design and functionality to craft experiences
-          that feel effortless and perform flawlessly.
-        </motion.p>
-      </section>
+  <motion.p
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.6, duration: 1 }}
+    className="hero-subtext"
+  >
+    I’m a passionate developer who thrives on creating elegant, scalable, and
+    intuitive systems. I bridge design and functionality to craft experiences
+    that feel effortless and perform flawlessly.
+  </motion.p>
+</section>
 
       {/* === ABOUT SECTION === */}
       <section id="about" className="section about">
