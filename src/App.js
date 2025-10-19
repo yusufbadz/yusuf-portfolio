@@ -230,6 +230,7 @@ function App() {
               ["vscode", "Visual Studio Code"],
               ["androidstudio", "Android Studio"],
               ["docker", "Docker"],
+              ["oracle","Oracle"]
             ].map(([icon, name], index) => (
               <motion.div
                 key={name}

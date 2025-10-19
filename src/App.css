@@ -720,3 +720,28 @@ footer {
     display: block !important;
   }
 }
+
+/* ===== DESKTOP FIX: Hide hero lanyard on large screens ===== */
+@media (min-width: 769px) {
+  .hero .lanyard-bg {
+    display: none !important;
+  }
+}
+
+/* ===== Fully disable all 3D model input and interaction on mobile ===== */
+@media (max-width: 768px) {
+  .lanyard-wrapper {
+    pointer-events: none !important;
+    touch-action: none !important;
+    user-select: none !important;
+    -webkit-user-drag: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    overflow: hidden !important;
+  }
+
+  .lanyard-wrapper * {
+    pointer-events: none !important;
+    touch-action: none !important;
+  }
+}
