@@ -1,38 +1,605 @@
+/* ===== General Styles ===== */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #000;
+  color: #ffffff;
+  scroll-behavior: smooth;
+}
+
 .App {
-  text-align: center;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: radial-gradient(circle at top center, #020202 0%, #000000 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.light-rays-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.hero-title, .hero-subtitle, .cta-button {
+  position: relative;
+  z-index: 5;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.hero-title span {
+  color: #00ffff;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+.cta-button {
+  margin-top: 2rem;
+  background: #00ffff;
+  color: #000;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: #00cccc;
+}
+
+/* ===== Sections ===== */
+.section {
+  min-height: 100vh;
+  padding: 6rem 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #0a0a0a;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #00ffff;
+}
+
+.section p {
+  max-width: 700px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #000;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* === CLEAN FLOATING NAVBAR === */
+.navbar-centered {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.6rem 1rem;
+  box-shadow: 0 0 15px rgba(126, 126, 126, 0.2);
+  height: 50px;
+}
+
+.nav-buttons {
+  display: flex;
+  list-style: none;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-buttons a {
+  text-decoration: none;
+  background: #ffffff;
+  color: #000;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.nav-buttons a:hover {
+  background: #00ffff;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+/* ===== SKILLS SECTION ===== */
+.skills {
+  background-color: #0d0d0d;
+  text-align: center; /* ✅ Center text */
+}
+
+.skills.show-skills {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skills h2 {
+  text-align: center; /* ✅ Ensures the heading is centered */
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  color: #00ffff;
+}
+
+.skills p {
+  text-align: center; /* ✅ Centers the paragraph */
+  max-width: 700px;
+  margin: 0 auto 2rem auto; /* ✅ Centers block horizontally */
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 2.2rem;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  max-width: 950px;
+  margin-top: 2rem;
+}
+
+.skill-card {
+  background: #2b2b2b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.skill-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+  border-color: #00ffff;
+}
+
+.skill-card img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.skill-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ===== ABOUT SECTION (Unified Container with Matching Color & Full Height) ===== */
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0a0a0a;
+  padding: 4rem 8%;
+  height: 100vh;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  height: 85vh;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05); /* ✅ single background for both halves */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+/* LEFT SIDE: ABOUT BOX */
+.about-box {
+  flex: 1;
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  background: transparent; /* ✅ share same background as container */
+}
+
+.about-box h2 {
+  color: #00ffff;
+  font-size: 2.8rem;
+  margin-bottom: -0.7rem;
+
+}
+
+.about-box p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* RIGHT SIDE: LANYARD SHOWCASE */
+.lanyard-showcase {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ✅ hanging from top */
+  background: transparent; /* ✅ same color as container */
+  position: relative;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100%; /* ✅ make sure it fills entire container */
+}
+
+/* Fix Canvas Cutoff */
+.lanyard-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.lanyard-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* RESPONSIVE FIX */
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column;
+    height: auto;
   }
-  to {
-    transform: rotate(360deg);
+
+  .about-box {
+    text-align: center;
   }
+
+  .lanyard-showcase {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    height: 450px;
+  }
+}
+
+.about-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.resume-btn {
+  background: #00ffff;
+  color: #000;
+  margin-bottom: 50px;
+}
+
+.resume-btn:hover {
+  background: #00cccc;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+.github-btn {
+  background: transparent;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  margin-bottom: 50px;
+}
+
+.github-btn:hover {
+  background: #00ffff;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+/* ===== MOBILE OPTIMIZATION (ADDED) ===== */
+@media (max-width: 768px) {
+
+  /* === General Fixes === */
+  html, body {
+    overflow-x: hidden;
+    height: auto;
+  }
+
+  .App {
+    overflow: visible;
+  }
+
+  /* === Hero Section === */
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+  }
+
+  .light-rays-wrapper {
+    display: block !important;
+    opacity: 0.9;
+    height: 120%;
+    overflow: visible;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-top: 0.8rem;
+  }
+
+  .cta-button {
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+    border-radius: 40px;
+  }
+
+  /* === Navbar === */
+  .navbar-centered {
+    top: 10px;
+  }
+
+  .nav-container {
+    height: auto;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .nav-buttons a {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  /* === About Section === */
+  .about {
+    flex-direction: column;
+    height: auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .about-box {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .about-box h2 {
+    font-size: 2.2rem;
+  }
+
+  .about-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .about-buttons {
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .btn {
+    width: 85%;
+    min-width: unset;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* === Lanyard Fix (3D Canvas) === */
+  .lanyard-showcase {
+    width: 100%;
+    height: 400px !important;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: none;
+    overflow: visible !important;
+  }
+
+  .lanyard-wrapper,
+  .lanyard-wrapper canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+  }
+
+  /* === Skills Section === */
+  .skills {
+    padding: 3rem 1rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .skill-card {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* === Footer === */
+  footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    overflow: visible !important;
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .light-rays-wrapper {
+    display: block !important;
+    position: absolute;
+    width: 100vw;
+    height: 120vh;
+    opacity: 0.9;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+/* ===== MOBILE NAVBAR FIX (Unified Button Container) ===== */
+@media (max-width: 768px) {
+  .navbar-centered {
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.05); /* shared capsule background */
+    padding: 0.3rem 0.4rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    height: 45px;
+  }
+
+  .nav-buttons {
+    display: flex;
+    gap: 0.6rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-buttons a {
+    background: rgba(255, 255, 255, 0.95);
+    color: #000;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.4rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .nav-buttons a:hover {
+    background: #00ffff;
+    color: #000;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+  }
+
+  .nav-buttons a.active {
+    background: #80ffff;
+    color: #000;
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  opacity: 0.9;
+  color: #00ffff;
+  min-height: 2rem;
+  font-weight: 600;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 3px;
+  animation: blink 1s step-start infinite;
+  color: #00ffff;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero-subtext {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-top: 1.2rem;
+  max-width: 700px;
+  line-height: 1.7;
+  color: #ccc;
 }
