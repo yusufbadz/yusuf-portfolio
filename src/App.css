@@ -604,144 +604,99 @@ footer {
   color: #ccc;
 }
 
-/* ===== MOBILE HERO LANYARD (HANGING EFFECT) ===== */
-@media (max-width: 768px) {
-  .lanyard-bg {
-    position: absolute;
-    top: -40px; /* makes it hang down from above */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    height: 60vh; /* smaller height */
-    z-index: 1; /* behind hero text but below navbar */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    pointer-events: none;
-    opacity: 0.9;
-  }
-
-  .lanyard-bg canvas {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain;
-    display: block;
-    transform: translateY(-10px); /* small downward offset */
-  }
-
-  /* Ensure navbar stays on top */
-  .navbar-centered {
-    z-index: 10 !important;
-  }
-
-  /* Keep hero text above lanyard */
-  .hero-title,
-  .hero-subtitle,
-  .hero-subtext,
-  .site-title {
-    position: relative;
-    z-index: 2;
-  }
-
-  /* Slightly reduce hero height to balance layout */
-  .hero {
-    min-height: 90vh;
-    padding-top: 5rem;
-  }
-
-  
+/* ===== HERO LANYARD (GENERAL STYLING) ===== */
+.lanyard-bg {
+  position: absolute;
+  top: -40px; /* makes it hang down from above */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 60vh;
+  z-index: 1; /* behind hero text but below navbar */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  opacity: 0.9;
+  pointer-events: none;
 }
 
-@keyframes lanyardSway {
-  0% {
-    transform: translateX(-50%) rotateZ(3deg);
-  }
-  25% {
-    transform: translateX(-50%) rotateZ(-2deg);
-  }
-  50% {
-    transform: translateX(-50%) rotateZ(2.5deg);
-  }
-  75% {
-    transform: translateX(-50%) rotateZ(-1.5deg);
-  }
-  100% {
-    transform: translateX(-50%) rotateZ(3deg);
-  }
+.lanyard-bg canvas {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  display: block;
+  transform: translateY(-10px); /* small downward offset */
 }
 
-@media (max-width: 768px) {
-  .lanyard-bg {
-    animation: lanyardSway 6s ease-in-out infinite;
-    transform-origin: top center;
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    width: 80%;
-    height: 55vh;
-    z-index: 1;
-    opacity: 0.9;
-    pointer-events: none;
-  }
-
-  .lanyard-bg canvas {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain;
-    display: block;
-  }
-
-  .navbar-centered {
-    z-index: 10 !important; /* keep navbar above the lanyard */
-  }
-
-  .hero-title,
-  .hero-subtitle,
-  .hero-subtext,
-  .site-title {
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero {
-    min-height: 90vh;
-    padding-top: 5rem;
-  }
+/* Keep navbar and hero text layered above */
+.navbar-centered {
+  z-index: 10 !important;
 }
 
-@media (max-width: 768px) {
-  /* Hide About section lanyard on mobile */
-  .about .lanyard-showcase {
-    display: none !important;
-  }
-
-  /* Keep hero lanyard visible */
-  .hero .lanyard-bg {
-    display: block !important;
-  }
+.hero-title,
+.hero-subtitle,
+.hero-subtext,
+.site-title {
+  position: relative;
+  z-index: 2;
 }
 
-/* ===== DESKTOP FIX: Hide hero lanyard on large screens ===== */
+/* Hero height */
+.hero {
+  min-height: 90vh;
+  padding-top: 5rem;
+}
+
+/* ===== REMOVE LANYARD ONLY FROM HERO SECTION (ALL DEVICES) ===== */
+.hero .lanyard-bg,
+.hero .lanyard-bg canvas,
+.hero .lanyard-wrapper {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ===== KEEP LANYARD ON ABOUT SECTION (DESKTOP ONLY) ===== */
 @media (min-width: 769px) {
-  .hero .lanyard-bg {
-    display: none !important;
+  .about .lanyard-showcase,
+  .about .lanyard-bg {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
 }
 
-/* ===== Fully disable all 3D model input and interaction on mobile ===== */
+/* ===== HIDE LANYARD EVERYWHERE ON MOBILE ===== */
 @media (max-width: 768px) {
-  .lanyard-wrapper {
+  .lanyard-bg,
+  .lanyard-bg canvas,
+  .lanyard-wrapper,
+  .about .lanyard-showcase,
+  .about .lanyard-bg {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
     pointer-events: none !important;
-    touch-action: none !important;
-    user-select: none !important;
-    -webkit-user-drag: none !important;
-    -webkit-touch-callout: none !important;
-    -webkit-tap-highlight-color: transparent !important;
-    overflow: hidden !important;
   }
+}
 
-  .lanyard-wrapper * {
-    pointer-events: none !important;
-    touch-action: none !important;
-  }
+/* Keep navbar and hero text layered properly */
+.navbar-centered {
+  z-index: 10 !important;
+}
+
+.hero-title,
+.hero-subtitle,
+.hero-subtext,
+.site-title {
+  position: relative;
+  z-index: 2;
+}
+
+/* Maintain hero spacing and layout */
+.hero {
+  min-height: 90vh;
+  padding-top: 5rem;
 }
