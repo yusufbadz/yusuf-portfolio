@@ -175,10 +175,9 @@ function App() {
             {/* === BUTTONS === */}
             <div className="about-buttons">
              <a
-               href="https://drive.google.com/uc?export=download&id=1fHWHPwS_zynOxULGATxRpvl8XBO8KT6v"
+               href={`${process.env.PUBLIC_URL}/resume-yusuf.pdf`}
                className="btn resume-btn"
-               target="_blank"
-               rel="noopener noreferrer"
+               tdownload="Yusuf-Badat-Resume.pdf"
                >
                Download Resume
                </a>
