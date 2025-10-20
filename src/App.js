@@ -174,9 +174,14 @@ function App() {
 
             {/* === BUTTONS === */}
             <div className="about-buttons">
-              <a href="/resume-yusuf.pdf" className="btn resume-btn" download>
-                Download Resume
-              </a>
+             <a
+               href="https://drive.google.com/uc?export=download&id=1fHWHPwS_zynOxULGATxRpvl8XBO8KT6v"
+               className="btn resume-btn"
+               target="_blank"
+               rel="noopener noreferrer"
+               >
+               Download Resume
+               </a>
               <a
                 href="https://github.com/yusufbadz"
                 target="_blank"
