@@ -174,7 +174,7 @@ function App() {
 
             {/* === BUTTONS === */}
             <div className="about-buttons">
-              <a href="/resume yusuf.pdf" className="btn resume-btn" download>
+              <a href="/resume-yusuf.pdf" className="btn resume-btn" download>
                 Download Resume
               </a>
               <a
